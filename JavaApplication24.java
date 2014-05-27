@@ -28,6 +28,7 @@ public class JavaApplication24 {
        
     }
 
+    // Metodo para efetuar "join" de array de inteiros em um string delimitado por ","
     public static String Join(int[] lista) {
         String buffer = "";
 
@@ -37,6 +38,7 @@ public class JavaApplication24 {
         return buffer;
     }
 
+    // Metodo para efetuar a ordenação Bubble Sort
     public static int[] BubbleSort(int[] lista) {
         //int[] v = { 1, 3, 10, 9, 6, 3903, 323, 13, 333, 2323, 444, 0 };
 
@@ -64,10 +66,12 @@ public class JavaApplication24 {
         return A;
     }
 
+    // Metodo para falicitar a interpretação do Pseudo-Codigo dos slides
     public static int Tamanho(int[] lista) {
         return lista.length;
     }
 
+    // Metodo para pegar a parte esquerda de um array (dividir metade)
     public static int[] Esqueda(int[] a) {
         int[] esquerda = new int[a.length/2];
         for (int i = 0; i < esquerda.length; i++) {
@@ -76,6 +80,7 @@ public class JavaApplication24 {
         return esquerda;
     }
 
+    // Metodo para pegar a parte direita de um array (dividir metade)
     public static int[] Direita(int[] a) {
         int[] direita = new int[a.length-(a.length/2)];
         int inicioDireita = (int)a.length/2;
@@ -88,6 +93,7 @@ public class JavaApplication24 {
         return direita;
     }
 
+    // Metodo recursivo para efetuar o Merge Sort
     public static int[] MergeSort(int[] lista) {
         if (lista.length <= 1) {
             return lista;
@@ -102,6 +108,7 @@ public class JavaApplication24 {
         return merge(metadeEsq, metadeDir);
     }
 
+    // Metodo que efetua a ordenação propriamente dita e merge entre os dois arrays
     private static int[] merge(int[] metadeEsq, int[] metadeDir) {
 
         int i1 = 0;
