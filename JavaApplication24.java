@@ -20,9 +20,9 @@ public class JavaApplication24 {
         String buf = Join(valores);
         System.out.println("Original: " + buf);
         
-        System.out.println("Merge Sort: " + Join(BubbleSort(valores)));
-        System.out.println("ESQ Sort: " + Join(Esqueda(valores)));
-        System.out.println("DIR Sort: " + Join(Direita(valores)));
+        System.out.println("Bubble Sort: " + Join(BubbleSort(valores)));
+        //System.out.println("ESQ Sort: " + Join(Esqueda(valores)));
+        //System.out.println("DIR Sort: " + Join(Direita(valores)));
         System.out.println("Merge Sort: " + Join(MergeSort(valores)));
         
        
