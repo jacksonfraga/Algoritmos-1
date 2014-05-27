@@ -68,25 +68,24 @@ public class JavaApplication24 {
         return lista.length;
     }
 
-    public static int[] Esqueda(int[] lista) {
-        int tam1 = Tamanho(lista)/2;
-        
-        int[] novo = new int[tam1];
-        
-        System.arraycopy(lista, 0, novo, 0, novo.length);
-        
-        return novo;
+    public static int[] Esqueda(int[] a) {
+        int[] esquerda = new int[a.length/2];
+        for (int i = 0; i < esquerda.length; i++) {
+            esquerda[i] = a[i];
+        }
+        return esquerda;
     }
 
-    public static int[] Direita(int[] lista) {
-        int tamEsq = (Tamanho(lista)/2);
-        int tam1 = Tamanho(lista) - tamEsq;
-
-        int[] novo = new int[tam1];
-       
-        System.arraycopy(lista, tamEsq, novo, 0, novo.length);
+    public static int[] Direita(int[] a) {
+        int[] direita = new int[a.length-(a.length/2)];
+        int inicioDireita = (int)a.length/2;
         
-        return novo;
+        for (int i = 0; i < direita.length; i++) {
+            direita[i] = a[inicioDireita];
+            inicioDireita++;
+        }
+        
+        return direita;
     }
 
     public static int[] MergeSort(int[] lista) {
@@ -97,35 +96,36 @@ public class JavaApplication24 {
         int[] metadeEsq = Esqueda(lista);
         int[] metadeDir = Direita(lista);
 
-        MergeSort(metadeEsq);
-        MergeSort(metadeDir);
+        metadeEsq = MergeSort(metadeEsq);
+        metadeDir = MergeSort(metadeDir);
 
         return merge(metadeEsq, metadeDir);
     }
 
     private static int[] merge(int[] metadeEsq, int[] metadeDir) {
 
-        int tamanhoTotal = Tamanho(metadeEsq) + Tamanho(metadeDir);
-
-        int[] novo = new int[tamanhoTotal];
-
         int i1 = 0;
-        int i2 = 0;
-        int i = 0;
-        
-        while (i < (tamanhoTotal)) {
-            if (i2 >= Tamanho(metadeDir) || 
-                    (i1 < Tamanho(metadeEsq) && metadeEsq[i1] <= metadeDir[i2])) {
-                novo[i] = metadeEsq[i1];
-                i1++;
-            } else {
-                novo[i] = metadeDir[i2];
-                i2++;
-            }
-            i++;
-        }
+		int i2 = 0;
+		int i = 0;
+		int[] novo = new int[metadeEsq.length + metadeDir.length];
 
-        return novo;
+		while (i < (metadeEsq.length + metadeDir.length))
+		{
+			if (i2 >= metadeDir.length
+					|| (i1 < metadeEsq.length 
+							&& metadeEsq[i1] <= metadeDir[i2]))
+			{
+				novo[i] = metadeEsq[i1];
+				i1++;
+			}
+			else
+			{
+				novo[i] = metadeDir[i2];
+				i2++;
+			}
+			i++;
+		}
+		return novo;
 
     }
 }
